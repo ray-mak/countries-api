@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+/* 300,600, 800 */
+* {
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text: hsl(200, 15%, 8%);
+    --input: hsl(0, 0%, 52%);
+    --background: hsl(0, 0%, 98%);
+    --elements: hsl(0, 0%, 100%);
+}
+
+.darkmode {
+    --elements: hsl(209, 23%, 22%);
+    --background: hsl(207, 26%, 17%);
+    --text: hsl(0, 0%, 100%);
+}
+
+body {
+    transition: all .7s;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    padding: 0 5% 0 5%;
+    background-color: var(--elements);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 6px rgb(206, 206, 206);
+ 
+}
+
+.headline {
+    color: var(--text);
+    font-size: 1.6rem;
+    font-weight: 800;
+
+}
+
+#darkmode {
+    margin-left: auto;
+    width: 120px;
+    height: 50px;
+    font-size: .9rem;
+    font-weight: 800;
+    border: none;
+    background-color: var(--elements);
+    color: var(--text);
+
+}
+
+.fa-regular {
+    position: relative;
+    left: 8px;
+
+}
+
+.darkmode .fa-regular {
+    opacity: 0;
+}
+
+.fa-solid {
+    position: relative;
+    right: 8px;
+    color: var(--text);
+    opacity: 0;
+
+}
+
+.darkmode .fa-solid {
+    opacity: 1;
+}
+
+main {
+    background-color: var(--background);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0 40px 0;
+}
+
+#search {
+    width: 40%;
+    height: 50px;
+    background-color: var(--elements);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    padding-left: 80px;
+    color: var(--text);
+    background-image: url(images/magnifying-glass-gray.svg);
+    background-repeat: no-repeat;
+    background-position: 6%;
+}
+
+.darkmode #search::placeholder {
+    color: var(--text);
+}
+
+.darkmode #search {
+    background-image: url(images/magnifying-glass-white.svg);
+}
+
+select {
+    width: 15%;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--elements);
+    outline: none;
+    color: var(--text);
+    padding: 16px;
+}
+
+.country-container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+}
+
+.country-card {
+    width: auto;
+    border-radius: 6px;
+}
+
+.flag-container {
+    width: 100%;
+}
+
+.flag {
+    width: 100%;
+    object-fit: fill;
+}
+
+
+
+.info-container {
+    background-color: var(--elements);
+    padding: 20px 20px 40px 20px;
+    margin-top: -5px;
+}
+
+.country-name {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: .9rem;
+    margin: 4px 0 4px 0;
+}
+
+.region, .population, .capital {
+    font-weight: 300;
+}
+
+
+@media screen and (max-width: 440px) {
+    .headline {
+        font-size: 1rem;
+    }
+    
+    #darkmode {
+        font-size: .9rem;
+        font-weight: 600;
+    }
+
+    .search-container {
+        flex-direction: column;
+        margin: 24px 0 24px 0;
+    }
+
+    #search {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    select {
+        width: 240px;
+        margin-top: 12px;
+    }
+}
