@@ -12,12 +12,14 @@
     --input: hsl(0, 0%, 52%);
     --background: hsl(0, 0%, 98%);
     --elements: hsl(0, 0%, 100%);
+    --box-shadow: rgb(206, 206, 206);
 }
 
 .darkmode {
     --elements: hsl(209, 23%, 22%);
     --background: hsl(207, 26%, 17%);
     --text: hsl(0, 0%, 100%);
+    --box-shadow:hsl(210, 21%, 5%);
 }
 
 body {
@@ -32,8 +34,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 6px rgb(206, 206, 206);
- 
+    box-shadow: 1px 1px 6px var(--box-shadow);
+    position: sticky;
+    top: 0;
 }
 
 .headline {
@@ -65,7 +68,7 @@ header {
     opacity: 0;
 }
 
-.fa-solid {
+.fa-solid.fa-moon {
     position: relative;
     right: 8px;
     color: var(--text);
@@ -73,7 +76,7 @@ header {
 
 }
 
-.darkmode .fa-solid {
+.darkmode .fa-solid.fa-moon {
     opacity: 1;
 }
 
@@ -117,6 +120,7 @@ main {
 
 select {
     width: 15%;
+    min-width: 200px;
     border-radius: 6px;
     border: none;
     background-color: var(--elements);
@@ -135,15 +139,19 @@ select {
 .country-card {
     width: auto;
     border-radius: 6px;
+    box-shadow: 1px 1px 5px var(--box-shadow);
+    cursor: pointer;
 }
 
 .flag-container {
     width: 100%;
+    height: 170px;
 }
 
 .flag {
     width: 100%;
-    object-fit: fill;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -168,8 +176,106 @@ select {
     margin: 4px 0 4px 0;
 }
 
-.region, .population, .capital {
+.country-info .label {
+    font-size: 1rem;
+}
+
+.region, .population, .capital, .native-name, .domain, .currency, .languages, .subregion {
     font-weight: 300;
+}
+
+#detail-page {
+    display: none;
+    width: 100%;
+    background-color: var(--background);
+    position: fixed;
+    top: 80px;
+    flex-direction: column;
+}
+
+#back-button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    margin-left: 5%;
+    margin-top: 80px;
+    padding-left: 12px;
+    background-image: url(images/arrow-left-black.svg);
+    background-repeat: no-repeat;
+    background-position: 25%;
+    border-radius: 6px;
+    background-color: var(--elements);
+    box-shadow: 1px 1px 10px var(--box-shadow);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.darkmode #back-button {
+    background-image: url(images/arrow-left-white.svg);
+}
+
+.detail-container {
+    width: 90%;
+    margin: 80px 0 0 5%;
+    display: flex;
+}
+
+.flag-display {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.big-flag {
+    width: 100%;
+}
+
+.country-info {
+    width: 60%;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-country-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.country-stats {
+    margin: 12px 0 24px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-span-2 {
+    grid-column: span 2;
+}
+
+.country-btn {
+    min-width: 100px;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    box-shadow: 1px 1px 5px var(--box-shadow);
+    background-color: var(--elements);
+    color: var(--text);
+    margin-left: 6px;
+    cursor: pointer;
+    padding: 4px 8px 4px 8px;
+}
+
+.border-container .label {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.row-span-3 {
+    grid-row: span 3;
 }
 
 
@@ -197,4 +303,51 @@ select {
         width: 240px;
         margin-top: 12px;
     }
+
+    .country-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #back-button {
+        margin-top: 60px;
+    }
+
+    .detail-container {
+        margin: 40px 0 0 5%;
+        flex-direction: column;
+    }
+    
+    .flag-display {
+        width: 100%;
+    }
+    
+    .country-info {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail-country-name {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+        margin-top: 24px;
+    }
+    
+    .country-stats {
+        margin: 12px 0 24px 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .border-container .label {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .row-span-3 {
+        grid-column: span 3;
+    }
+    
 }

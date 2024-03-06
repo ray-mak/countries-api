@@ -18,19 +18,50 @@
         </button>
     </header>
     <main>
+        <div id="detail-page">
+            <!-- <button id="back-button">
+                Back
+            </button>
+            <div class="detail-container">
+                <div class="flag-display">
+                    <img class="big-flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
+                </div>
+                <div class="country-info">
+                    <div class="detail-country-name">Belgium</div>
+                    <div class="country-stats">
+                        <div class="label">Native Name: <span class="native-name">Belgie</span></div>
+                        <div class="label">Top Level Domain <span class="domain">.be</span></div>
+                        <div class="label">Population: <span class="population">11,319,511</span></div>
+                        <div class="label">Currencies: <span class="currency">Euro</span></div>
+                        <div class="label">Region: <span class="region">Europe</span></div>
+                        <div class="label">Languages: <span class="languages">Dutch, French, German</span></div>
+                        <div class="label grid-span-2">Sub Region: <span class="subregion">Western Europe</span></div>
+                        <div class="label grid-span-2">Capital: <span class="capital">Brussels</span></div>
+                    </div>
+                    <div class="border-container">
+                        <div class="label">
+                            <div class="border-label row-span-2">Border Countries:</div>   
+                            <button class="country-btn" value="france" type="button">France</button>
+                            <button class="country-btn" value="germany" type="button">Germany</button>
+                            <button class="country-btn" value="netherlands" type="button">Netherlands</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
         <div class="search-container">
             <input id="search" type="text" placeholder="Search for a country...">
             <select name="regions" id="region-select">
-                <option value="">Filter by Region</option>
+                <option value="all">Filter by Region</option>
                 <option value="Africa">Africa</option>
-                <option value="America">America</option>
+                <option value="Americas">Americas</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
                 <option value="Oceania">Oceania</option>
             </select>
         </div>
         <div class="country-container">
-            <div class="country-card">
+            <!-- <div class="country-card">
                 <div class="flag-container">
                     <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
                 </div>
@@ -40,84 +71,7 @@
                     <div class="label">Region: <span class="region">Europe</span></div>
                     <div class="label">Capital: <span class="capital">Berlin</span></div>
                 </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
-            <div class="country-card">
-                <div class="flag-container">
-                    <img class="flag" src="https://flagcdn.com/w320/aw.png" alt="Country's flag"/>
-                </div>
-                <div class="info-container">
-                    <div class="country-name">Germany</div>
-                    <div class="label">Population: <span class="population">81,770,900</span></div>
-                    <div class="label">Region: <span class="region">Europe</span></div>
-                    <div class="label">Capital: <span class="capital">Berlin</span></div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </main>
 </body>
