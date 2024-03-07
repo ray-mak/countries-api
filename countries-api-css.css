@@ -83,7 +83,6 @@ header {
 main {
     background-color: var(--background);
     width: 100%;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,7 +132,7 @@ select {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5rem;
+    gap: 4rem;
 }
 
 .country-card {
@@ -145,21 +144,21 @@ select {
 
 .flag-container {
     width: 100%;
-    height: 170px;
+    height: 200px;
 }
 
 .flag {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 
 
 .info-container {
     background-color: var(--elements);
-    padding: 20px 20px 40px 20px;
-    margin-top: -5px;
+    padding: 20px;
+
 }
 
 .country-name {
@@ -187,8 +186,8 @@ select {
 #detail-page {
     display: none;
     width: 100%;
+    min-height: calc(100vh - 80px);
     background-color: var(--background);
-    position: fixed;
     top: 80px;
     flex-direction: column;
 }
@@ -279,7 +278,20 @@ select {
 }
 
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 1280px) {
+    .country-container {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .country-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 640px) {
     .headline {
         font-size: 1rem;
     }
@@ -310,7 +322,7 @@ select {
     }
 
     #back-button {
-        margin-top: 60px;
+        margin-top: 40px;
     }
 
     .detail-container {
@@ -344,6 +356,12 @@ select {
 
     .border-container .label {
         grid-template-columns: repeat(3, 1fr);
+        gap: .5rem;
+        margin-bottom: 40px;
+    }
+
+    .country-btn {
+        margin-left: 0;
     }
     
     .row-span-3 {

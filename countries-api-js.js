@@ -1,5 +1,7 @@
 const countryContainer = document.querySelector(".country-container");
 const searchContainer = document.querySelector(".search-container");
+
+
 // fetch and load countries
 fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
@@ -33,8 +35,43 @@ fetch("https://restcountries.com/v3.1/all")
         console.error("Error fetching data", err)
     })
 
-//open detailed display
+//create sessionStorage and navigate with back button
+let previousCountries = [];
+
+function addPreviousCountry(countryData) {
+    previousCountries.push(countryData);
+    sessionStorage.setItem("previousCountries", JSON.stringify(previousCountries))
+}
+
+function removePreviousCountry() {
+    if (previousCountries.length <= 1) {
+        previousCountries.pop();
+        return null
+    }
+    previousCountries.pop();
+    sessionStorage.setItem("previousCountries", JSON.stringify(previousCountries));
+    console.log(previousCountries);
+    return previousCountries[previousCountries.length - 1];    
+}
+
 const detailPage = document.getElementById("detail-page");
+
+detailPage.addEventListener("click", (e) => {
+    if (e.target.id === "back-button") {
+        const previousCountryData = removePreviousCountry();
+        if (previousCountryData) {
+            generateDetailPage(previousCountryData);
+        } else {
+            detailPage.style.display = "none";
+            countryContainer.style.display = "grid";
+            searchContainer.style.display = "flex";
+            setCountryContainer();
+        }
+    }
+})
+
+
+//open detailed display 
 
 function generateDetailPage(countryData) {
     const flagSrc = countryData.flags.png;
@@ -111,7 +148,6 @@ function generateDetailPage(countryData) {
                 }))
         })
     }
-    
     detailPage.style.display = "flex";
     countryContainer.style.display = "none";
     searchContainer.style.display = "none";
@@ -127,6 +163,8 @@ countryContainer.addEventListener("click", (e) => {
             .then((res) => res.json())
             .then((data => {
                 const countryData = data[0];
+                addPreviousCountry(countryData);
+                console.log(previousCountries);
                 generateDetailPage(countryData);
             }))
             .catch((err) => {
@@ -142,6 +180,8 @@ detailPage.addEventListener("click", (e) => {
             .then((res) => res.json())
             .then((borderData) => {
                 const borderCountryData = borderData[0];
+                addPreviousCountry(borderCountryData);
+                console.log(previousCountries);
                 generateDetailPage(borderCountryData);
             })
             .catch((err) => {
@@ -211,3 +251,17 @@ darkModeBtn.addEventListener("click", () => {
         disableDarkMode();
     }
 })
+
+//resize display on mobile display 
+
+function isMobileDevice() {
+    return window.innerWidth <= 640;
+}
+
+function setCountryContainer() {
+    if (isMobileDevice()) {
+        countryContainer.style.display = "flex"
+    } else {
+        countryContainer.style.display = "grid"
+    }
+}
